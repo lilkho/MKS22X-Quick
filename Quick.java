@@ -7,8 +7,8 @@ public class Quick {
   */
   public static int quickselect(int []data, int k){
     int pivot = partition(data,0,data.length-1);
-    while (pivot!=k) {
-      if (k>pivot) {
+    while (pivot!=k-1) {
+      if (k-1>pivot) {
         pivot=partition(data,pivot,data.length-1);
       } else {
         pivot=partition(data,0,pivot);
@@ -46,11 +46,14 @@ public class Quick {
     }
     data[0]=data[pivot];
     data[pivot]=pivotValue;
+    System.out.println(Arrays.toString(data));
     return pivot;
   }
 
   public static void main(String[] args) {
     int[] data = {8,7,6,5,3,0,9};
     System.out.println(quickselect(data,2));
+    int[] data2 = {17,61,67,47,93,12,20,4,44,68};
+    System.out.println(quickselect(data2,4));
   }
 }
