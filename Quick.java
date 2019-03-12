@@ -32,7 +32,7 @@ public class Quick {
     int pivotPos=start;
     start++;
     while (start<end) {
-      if (data[start]>pivotValue) {
+      if (data[start]>=pivotValue) {
         int startValue = data[start];
         data[start]=data[end];
         data[end]=startValue;
