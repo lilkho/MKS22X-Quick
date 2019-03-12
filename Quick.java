@@ -1,4 +1,10 @@
 public class Quick {
+
+  /*return the value that is the kth smallest value of the array.
+  */
+  public static int quickselect(int []data, int k){
+    return 0;
+  }
   /*Modify the array such that:
   *1. Only the indices from start to end inclusive are considered in range
   *2. A random index from start to end inclusive is chosen, the corresponding
