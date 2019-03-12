@@ -1,3 +1,6 @@
+import java.io.*;
+import java.util.*;
+
 public class Quick {
 
   /*return the value that is the kth smallest value of the array.
@@ -14,7 +17,30 @@ public class Quick {
   *@return the index of the final position of the pivot element.
   */
   public static int partition ( int [] data, int start, int end){
-    return 0;
+    int pivot=(int)(Math.random()*end);
+    int pivotValue=data[pivot];
+    data[pivot]=data[start];
+    data[start]=pivotValue;
+    start++;
+    while (start<end) {
+      if (data[start]>pivotValue) {
+        int startValue = data[start];
+        data[start]=data[end];
+        data[end]=startValue;
+        end--;
+      } else {
+        start++;
+      }
+    }
+    pivot=start;
+    while (data[pivot]>pivotValue) {
+      pivot--;
+    }
+    data[0]=data[pivot];
+    data[pivot]=pivotValue;
+    return pivot;
   }
 
+  public static void main(String[] args) {
+  }
 }
