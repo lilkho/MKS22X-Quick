@@ -6,7 +6,15 @@ public class Quick {
   /*return the value that is the kth smallest value of the array.
   */
   public static int quickselect(int []data, int k){
-    return 0;
+    int pivot = partition(data,0,data.length-1);
+    while (pivot!=k) {
+      if (k>pivot) {
+        pivot=partition(data,pivot,data.length-1);
+      } else {
+        pivot=partition(data,0,pivot);
+      }
+    }
+    return data[pivot];
   }
   /*Modify the array such that:
   *1. Only the indices from start to end inclusive are considered in range
@@ -42,5 +50,7 @@ public class Quick {
   }
 
   public static void main(String[] args) {
+    int[] data = {8,7,6,5,3,0,9};
+    System.out.println(quickselect(data,2));
   }
 }
