@@ -29,6 +29,7 @@ public class Quick {
     int pivotValue=data[pivot];
     data[pivot]=data[start];
     data[start]=pivotValue;
+    int pivotPos=start;
     start++;
     while (start<end) {
       if (data[start]>pivotValue) {
@@ -44,7 +45,7 @@ public class Quick {
     while (data[pivot]>pivotValue) {
       pivot--;
     }
-    data[0]=data[pivot];
+    data[pivotPos]=data[pivot];
     data[pivot]=pivotValue;
     System.out.println(Arrays.toString(data));
     return pivot;
@@ -55,5 +56,7 @@ public class Quick {
     System.out.println(quickselect(data,2));
     int[] data2 = {17,61,67,47,93,12,20,4,44,68};
     System.out.println(quickselect(data2,4));
+    int[] data3 = {8,7,6,5,3,3,0,9};
+    System.out.println(quickselect(data3,2));
   }
 }
