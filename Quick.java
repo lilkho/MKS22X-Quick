@@ -50,6 +50,9 @@ public class Quick {
     System.out.println(Arrays.toString(data));
     return pivot;
   }
+  private static int median(int[] data, int start, int end) {
+    int[] array = new int[end-start+1];
+  }
 
   public static void main(String[] args) {
     int[] data = {8,7,6,5,3,0,9};
