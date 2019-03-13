@@ -32,7 +32,17 @@ public class Quick {
     int pivotPos=start;
     start++;
     while (start<end) {
-      if (data[start]>=pivotValue) {
+      if (data[start]==pivotValue) {
+        if ((int)(Math.random())==0) {
+          int startValue = data[start];
+          data[start]=data[end];
+          data[end]=startValue;
+          end--;
+        } else {
+          start++;
+        }
+      }
+      else if (data[start]>pivotValue) {
         int startValue = data[start];
         data[start]=data[end];
         data[end]=startValue;
@@ -47,13 +57,15 @@ public class Quick {
     }
     data[pivotPos]=data[pivot];
     data[pivot]=pivotValue;
+    System.out.println(Arrays.toString(data));
+    System.out.println(pivot);
     return pivot;
   }
   /*Modify the array to be in increasing order.
   */
   public static void quicksort(int[] data) {
     quicksort(data,0,data.length-1);
-    System.out.println(Arrays.toString(data));
+
   }
   private static void quicksort(int[] data, int lo, int hi) {
     if (lo>=hi) return;
@@ -79,5 +91,6 @@ public class Quick {
     //
     int[] dat = {17,61,67,47,93,12,20,4,44,68};
     quicksort(dat);
+    System.out.println(Arrays.toString(dat));
   }
 }
