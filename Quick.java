@@ -47,19 +47,37 @@ public class Quick {
     }
     data[pivotPos]=data[pivot];
     data[pivot]=pivotValue;
-    System.out.println(Arrays.toString(data));
     return pivot;
   }
-  private static int median(int[] data, int start, int end) {
-    int[] array = new int[end-start+1];
+  /*Modify the array to be in increasing order.
+  */
+  public static void quicksort(int[] data) {
+    quicksort(data,0,data.length-1);
+    System.out.println(Arrays.toString(data));
+  }
+  private static void quicksort(int[] data, int lo, int hi) {
+    if (lo>=hi) return;
+    int pivot = partition(data,lo,hi);
+    quicksort(data,lo,pivot-1);
+    quicksort(data,pivot+1,hi);
   }
 
+
   public static void main(String[] args) {
+    System.out.println("testingg quickselect");
+    //
     int[] data = {8,7,6,5,3,0,9};
     System.out.println(quickselect(data,2));
     int[] data2 = {17,61,67,47,93,12,20,4,44,68};
     System.out.println(quickselect(data2,4));
     int[] data3 = {8,7,6,5,3,3,0,9};
     System.out.println(quickselect(data3,2));
+    int[] data4 = {10,10,10,19,17,23,77,66,6,6,55,5,5};
+    System.out.println(quickselect(data4,10));
+    //
+    System.out.println("testingg quicksort");
+    //
+    int[] dat = {17,61,67,47,93,12,20,4,44,68};
+    quicksort(dat);
   }
 }
