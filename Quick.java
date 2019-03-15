@@ -25,13 +25,16 @@ public class Quick {
   *@return the index of the final position of the pivot element.
   */
   public static int partition ( int [] data, int start, int end){
+    //choose random index
     int pivot=(int)(Math.random()*end);
+    //swap index w beginning
     int pivotValue=data[pivot];
     data[pivot]=data[start];
     data[start]=pivotValue;
-    int pivotPos=start;
+    int pivotPos=start; //keep track of where pivot is
     start++;
     while (start<end) {
+      //if its equal make it 50/50 it goes to left or right
       if (data[start]==pivotValue) {
         if ((int)(Math.random())==0) {
           int startValue = data[start];
@@ -42,23 +45,26 @@ public class Quick {
           start++;
         }
       }
+      //if its greater then swap
       else if (data[start]>pivotValue) {
         int startValue = data[start];
         data[start]=data[end];
         data[end]=startValue;
         end--;
+      //otherwise keep on going
       } else {
         start++;
       }
     }
+    //check till its smaller
     pivot=start;
     while (data[pivot]>pivotValue) {
       pivot--;
     }
+    //now swap
     data[pivotPos]=data[pivot];
     data[pivot]=pivotValue;
     System.out.println(Arrays.toString(data));
-    System.out.println(pivot);
     return pivot;
   }
   /*Modify the array to be in increasing order.
